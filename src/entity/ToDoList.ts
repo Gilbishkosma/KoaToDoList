@@ -1,5 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from "typeorm";
-import ToDoTopic from './ToDoTopic'
+import { Topic } from './ToDoTopic'
+
+
 
 @Entity()
 export class List{
@@ -11,7 +13,7 @@ export class List{
     @Column({length:100})
     name: string;
 
-    @ManyToOne(type => ToDoTopic, todotopic => todotopic.lists)
-    topic: ToDoTopic;
+    @ManyToOne(type => Topic, topic => topic.lists)
+    topic: Topic;
 
 } 

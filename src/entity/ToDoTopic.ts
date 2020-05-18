@@ -1,6 +1,6 @@
-import {Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne} from "typeorm";
-import ToDoList from './ToDoList'
-import User from './User'
+import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, ManyToOne} from "typeorm";
+import { List } from './ToDoList'
+import { User } from './User'
 
 @Entity()
 export class Topic{
@@ -9,12 +9,15 @@ export class Topic{
     id: number;
 
     @Column({length:50})
-    name: string;
+    title: string;
 
-    @OneToMany(type => ToDoList, list => list.topic )
-    lists: ToDoList[];
+    @OneToMany(type => List, list => list.topic )
+    lists: List[];
 
     @ManyToOne(type => User, user => user.topics)
     user: User;
+
+    @CreateDateColumn({type: 'datetime'})
+    date: Date;
 
 } 

@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>ToDo List</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+	<section class="section">
+	<div class="container">
+	   <div class="columns">
+	   <div class="column">
+		<h1 class="title">
+			<a href="/">ToDoList</a>
+		</h1>
+		<p class="subtitle">
+			Made using <strong>Koa</strong> & <strong>Bulma</strong>
+		</p>
+		</div>
+		<div class="column">
+			<div class="has-text-grey-dark has-text-right">
+				<% if (locals.user)  { %>
+					<p>Hi, <%= user.name %>
+					<a href="/logout">Logout</a><br>
+					</p>
+				<% } else { %>
+					<p><a href="/register">Login/Register</a></p>
+				<% }%>
+			</div>
+		</div>
+	  </div>
+	  <hr>	
